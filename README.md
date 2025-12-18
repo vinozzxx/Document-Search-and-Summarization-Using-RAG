@@ -1,4 +1,4 @@
-# 📄 RAG Document Query System (PDF Q&A using LLMs)
+#  RAG Document Query System (PDF Q&A using LLMs)
 
 A **Retrieval-Augmented Generation (RAG)** based application that allows users to upload PDF documents and ask natural language questions. The system retrieves the most relevant document chunks using embeddings and generates accurate answers using a Large Language Model.
 
@@ -6,17 +6,27 @@ This project was built as part of a **Junior AI/ML / GenAI Engineer interview as
 
 ---
 
-## 🚀 Features
+##  Screenshots
 
-* 📂 Upload PDF documents
-* 🔍 Semantic search using vector embeddings
-* 🤖 Context-aware answers using LLM
-* 🧠 Retrieval-Augmented Generation (RAG) architecture
-* 🖥️ Simple and clean API-based backend
+![image 1](https://github.com/vinozzxx/Document-Search-and-Summarization-Using-RAG/blob/d230d6cf0b0ec753fb0da8cbd4c7070f3389cc98/image%201.png)
+
+![image 2 ](https://github.com/vinozzxx/Document-Search-and-Summarization-Using-RAG/blob/d230d6cf0b0ec753fb0da8cbd4c7070f3389cc98/image%202%20.png)
+
 
 ---
 
-## 🏗️ Project Architecture
+
+##  Features
+
+*  Upload PDF documents
+*  Semantic search using vector embeddings
+*  Context-aware answers using LLM
+*  Retrieval-Augmented Generation (RAG) architecture
+*  Simple and clean API-based backend
+
+---
+
+##  Project Architecture
 
 **Flow:**
 
@@ -36,7 +46,7 @@ Final Answer
 
 ---
 
-## 📁 Project File Structure
+##  Project File Structure
 
 ```
 RAG_EVER_QUENT/
@@ -57,56 +67,56 @@ RAG_EVER_QUENT/
 
 ---
 
-## 🧠 Core Components Explained
+##  Core Components Explained
 
-### 🔹 `app.py`
+###  `app.py`
 
 * Handles user interaction and API endpoints
 * Accepts queries and PDF uploads
 * Calls RAG pipeline for answer generation
 
-### 🔹 `rag.py`
+###  `rag.py`
 
 * Loads and chunks PDF documents
 * Creates embeddings using LLM embeddings
 * Performs similarity search
 * Sends retrieved context to LLM
 
-### 🔹 `uploads/`
+###  `uploads/`
 
 * Stores uploaded PDF files
 * Acts as the document corpus
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
-### 1️⃣ Clone the Repository
+### 1️ Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/rag-document-query.git
 cd rag-document-query
 ```
 
-### 2️⃣ Create Virtual Environment
+### 2️ Create Virtual Environment
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 ```
 
-### 3️⃣ Install Dependencies
+### 3️ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Configure Environment Variables
+### 4️ Configure Environment Variables
 
 Create a `.env` file:
 
 ```env
-OPENAI_API_KEY=your_api_key_here
+Groq_API_KEY=my_api_key_here
 ```
 
 ### 5️⃣ Run the Application
@@ -115,17 +125,7 @@ OPENAI_API_KEY=your_api_key_here
 python app.py
 ```
 
----
-
-## 🖼️ Application Screenshot
-
-> Below is the current project structure as seen in VS Code:
-
-![Project Structure Screenshot](Screenshot_2025-12-18_145557.png)
-
----
-
-## 🧪 Example Use Case
+## Example Use Case
 
 **Question:**
 
@@ -137,7 +137,7 @@ python app.py
 
 ---
 
-## 📊 Evaluation (Optional Extension)
+## Evaluation (Optional Extension)
 
 * Retrieval Accuracy: Semantic similarity matching
 * Answer Quality: Context relevance and coherence
@@ -145,9 +145,9 @@ python app.py
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
-* Python 🐍
+* Python 
 * LangChain / LLM APIs
 * Vector Embeddings
 * PDF Parsing
@@ -155,7 +155,7 @@ python app.py
 
 ---
 
-## 🎯 Future Improvements
+##  Future Improvements
 
 * Web UI (Streamlit / React)
 * Support for multiple documents
@@ -165,11 +165,10 @@ python app.py
 
 ---
 
-## 👤 Author
+##  Author
 
-**Vinod Kumar**
+**VinothKumar**
 GenAI / Data Science Enthusiast
-📍 India
 
 ---
 
