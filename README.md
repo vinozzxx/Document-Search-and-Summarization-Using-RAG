@@ -1,223 +1,178 @@
-RAG Document Search & Summarization System
-📋 Project Overview
-A Retrieval-Augmented Generation (RAG) system that enables intelligent document search and summarization using Large Language Models (LLMs). This system combines traditional information retrieval methods with modern LLM capabilities to provide accurate, context-aware document search and concise summarization.
+# 📄 RAG Document Query System (PDF Q&A using LLMs)
 
-🎯 Objective
-Design and implement a system that can efficiently search and summarize large textual corpora using LLMs (like GPT-4 or similar), providing users with relevant document retrieval and coherent summarization.
+A **Retrieval-Augmented Generation (RAG)** based application that allows users to upload PDF documents and ask natural language questions. The system retrieves the most relevant document chunks using embeddings and generates accurate answers using a Large Language Model.
 
-🏗️ Project Structure
+This project was built as part of a **Junior AI/ML / GenAI Engineer interview assignment** focused on **document search and summarization using LLMs**.
 
+---
+
+## 🚀 Features
+
+* 📂 Upload PDF documents
+* 🔍 Semantic search using vector embeddings
+* 🤖 Context-aware answers using LLM
+* 🧠 Retrieval-Augmented Generation (RAG) architecture
+* 🖥️ Simple and clean API-based backend
+
+---
+
+## 🏗️ Project Architecture
+
+**Flow:**
+
+```
+User Query
+   ↓
+Embed Query
+   ↓
+Vector Similarity Search
+   ↓
+Retrieve Relevant Chunks
+   ↓
+LLM (Answer Generation)
+   ↓
+Final Answer
+```
+
+---
+
+## 📁 Project File Structure
+
+```
 RAG_EVER_QUENT/
 │
-├── __pycache__/                 # Python cache files (auto-generated)
-├── venv/                        # Python virtual environment
-├── uploads/                     # Directory for uploaded documents
+├── uploads/
 │   └── STEPPER MOTOR USING DELTA PLC.pdf
 │
-├── .env                         # Environment variables
-├── .gitignore                   # Git ignore file
-├── app.py                       # Main Flask application
-├── rag.py                       # Core RAG implementation
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
+├── __pycache__/
+├── .venv/
+│
+├── app.py              # Main application entry point
+├── rag.py              # RAG logic: embedding, retrieval, generation
+├── requirements.txt    # Python dependencies
+├── .env                # Environment variables (API keys)
+├── .gitignore          # Git ignored files
+└── README.md           # Project documentation
+```
 
-📸 Screenshot
-https://Screenshot%25202025-12-18%2520145557.png
+---
 
-📁 File Descriptions
-File/Folder	Purpose
-app.py	Main Flask web application handling API endpoints and UI
-rag.py	Core RAG implementation with search and summarization logic
-requirements.txt	Python package dependencies
-uploads/	Storage directory for document corpus
-.env	Environment configuration (API keys, settings)
-.gitignore	Specifies files to ignore in version control
-venv/	Python virtual environment (excluded from git)
-🚀 Setup & Installation
-Prerequisites
-Python 3.8+
+## 🧠 Core Components Explained
 
-OpenAI API key (or compatible LLM provider)
+### 🔹 `app.py`
 
-Git
+* Handles user interaction and API endpoints
+* Accepts queries and PDF uploads
+* Calls RAG pipeline for answer generation
 
-Installation Steps
-Clone the repository
+### 🔹 `rag.py`
 
-bash
-git clone <repository-url>
-cd RAG_EVER_QUENT
-Create virtual environment
+* Loads and chunks PDF documents
+* Creates embeddings using LLM embeddings
+* Performs similarity search
+* Sends retrieved context to LLM
 
-bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies
+### 🔹 `uploads/`
 
-bash
+* Stores uploaded PDF files
+* Acts as the document corpus
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/rag-document-query.git
+cd rag-document-query
+```
+
+### 2️⃣ Create Virtual Environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
-Configure environment variables
+```
 
-Copy .env.example to .env (if exists) or create .env
+### 4️⃣ Configure Environment Variables
 
-Add your API keys and configuration:
+Create a `.env` file:
 
-text
+```env
 OPENAI_API_KEY=your_api_key_here
-MODEL_NAME=gpt-4
-TOP_K_RESULTS=5
-Prepare your document corpus
+```
 
-Place documents in the uploads/ folder
+### 5️⃣ Run the Application
 
-Supported formats: PDF, TXT, DOCX
-
-Run the application
-
-bash
+```bash
 python app.py
-Access the web interface at http://localhost:5000
+```
 
-🔧 Key Features
-1. Document Search
-Hybrid Retrieval: Combines TF-IDF/BM25 with vector embeddings
+---
 
-Relevance Ranking: Returns top N most relevant documents
+## 🖼️ Application Screenshot
 
-Query Expansion: Uses LLM for query understanding
+> Below is the current project structure as seen in VS Code:
 
-2. Document Summarization
-LLM-Powered: Uses advanced LLMs for coherent summarization
+![Project Structure Screenshot](Screenshot_2025-12-18_145557.png)
 
-Length Control: Adjustable summary length (concise/detailed)
+---
 
-Multi-Document: Summarizes multiple related documents
+## 🧪 Example Use Case
 
-3. User Interface (Bonus)
-Web Interface: User-friendly query input and results display
+**Question:**
 
-Auto-suggestions: Query suggestions as you type
+> What is the function of a stepper motor in Delta PLC?
 
-Pagination: Navigate through search results
+**Answer:**
 
-Customization: Adjust summary length and search parameters
+> A stepper motor in Delta PLC is used for precise position and speed control by converting electrical pulses into discrete mechanical movements.
 
-📊 Evaluation Metrics
-Search Accuracy
-Precision/Recall metrics
+---
 
-Relevance scoring
+## 📊 Evaluation (Optional Extension)
 
-Manual evaluation framework
+* Retrieval Accuracy: Semantic similarity matching
+* Answer Quality: Context relevance and coherence
+* Scalable to multiple PDFs and large documents
 
-Summary Quality
-ROUGE scores (automated)
+---
 
-Human evaluation criteria
+## 🛠️ Tech Stack
 
-Coherence and information retention
+* Python 🐍
+* LangChain / LLM APIs
+* Vector Embeddings
+* PDF Parsing
+* Retrieval-Augmented Generation (RAG)
 
-🧠 Technical Implementation
-Data Processing Pipeline
-Document Ingestion: Parse and clean various document formats
+---
 
-Chunking: Split documents into manageable segments
+## 🎯 Future Improvements
 
-Embedding Generation: Create vector representations
+* Web UI (Streamlit / React)
+* Support for multiple documents
+* Summary length control
+* ROUGE-based evaluation
+* Query auto-suggestions
 
-Indexing: Build searchable indices (vector + keyword)
+---
 
-Search Methodology
-Traditional: TF-IDF, BM25 for keyword matching
+## 👤 Author
 
-Semantic: Sentence/Document embeddings for contextual search
+**Vinod Kumar**
+GenAI / Data Science Enthusiast
+📍 India
 
-Hybrid: Weighted combination of both approaches
+---
 
-Summarization Approach
-Extractive: Identify key sentences/phrases
+## ⭐ If you like this project
 
-Abstractive: Generate new coherent summaries using LLMs
-
-Combined: Best-of-both approach for optimal results
-
-⚙️ Configuration Options
-Modify rag.py or environment variables for:
-
-LLM model selection (GPT-4, Claude, etc.)
-
-Chunk size and overlap
-
-Number of search results (top K)
-
-Summary length (word count)
-
-Search algorithm weights (TF-IDF vs. embeddings)
-
-📈 Performance Considerations
-Optimization Tips
-Batch Processing: Process documents in batches
-
-Caching: Cache embeddings and frequent queries
-
-Async Operations: Use async for LLM calls
-
-Indexing: Efficient vector database usage
-
-Scalability
-Designed to handle thousands of documents
-
-Modular architecture for easy scaling
-
-Support for distributed processing
-
-🧪 Testing
-Run included test scripts:
-
-bash
-python -m pytest tests/  # If tests are available
-Manual testing:
-
-Place test documents in uploads/
-
-Run test queries through web interface
-
-Evaluate search relevance and summary quality
-
-📄 Report & Documentation
-The solution includes:
-
-Detailed Report: Methodology, challenges, results
-
-Code Documentation: Inline comments and docstrings
-
-Setup Instructions: Complete deployment guide
-
-Evaluation Results: Performance metrics and analysis
-
-🚦 Challenges & Solutions
-Challenge	Solution
-Long Context	Document chunking with overlap
-Mixed Formats	Multi-format parsers (PDF, DOCX, TXT)
-LLM Costs	Caching, optimized prompts, batching
-Relevance Ranking	Hybrid scoring (traditional + semantic)
-🤝 Contributing
-Fork the repository
-
-Create a feature branch
-
-Commit changes
-
-Push to the branch
-
-Open a Pull Request
-
-📝 License
-[Specify your license here]
-
-👥 Contact & Support
-For questions or support:
-
-Create an issue in the repository
-
-[Provide contact information]
+Give it a ⭐ on GitHub and feel free to fork and improve it!
