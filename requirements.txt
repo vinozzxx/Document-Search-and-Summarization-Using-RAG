@@ -1,0 +1,12 @@
+# openai
+groq
+langchain
+langchain-community
+langchain-core
+faiss-cpu
+langchain-groq
+tiktoken
+pypdf
+streamlit
+python-dotenv
+sentence-transformers
