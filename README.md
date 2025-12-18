@@ -1,205 +1,223 @@
-📄 Document Search and Summarization using Large Language Models (RAG)
-📌 Project Overview
-
-This project implements a Document Search and Summarization system using Large Language Models (LLMs) and a Retrieval-Augmented Generation (RAG) architecture.
-The system enables users to upload documents, perform semantic search over the corpus, and generate concise, meaningful summaries based on user queries.
-
-This solution is developed as part of an Interview Assignment focused on leveraging modern NLP and LLM capabilities.
+RAG Document Search & Summarization System
+📋 Project Overview
+A Retrieval-Augmented Generation (RAG) system that enables intelligent document search and summarization using Large Language Models (LLMs). This system combines traditional information retrieval methods with modern LLM capabilities to provide accurate, context-aware document search and concise summarization.
 
 🎯 Objective
+Design and implement a system that can efficiently search and summarize large textual corpora using LLMs (like GPT-4 or similar), providing users with relevant document retrieval and coherent summarization.
 
-The primary goals of this project are:
+🏗️ Project Structure
 
-Efficiently search large text documents
-
-Retrieve the Top-N most relevant document segments
-
-Generate coherent and accurate summaries using an LLM
-
-Support adjustable summary length
-
-Maintain scalability, modularity, and clean code structure
-
-🧠 System Architecture (RAG Pipeline)
-
-Document Ingestion
-
-PDF documents are uploaded to the system
-
-Text Preprocessing
-
-Text extraction, cleaning, and chunking
-
-Embedding Generation
-
-Each text chunk is converted into vector embeddings
-
-Semantic Search
-
-User queries are matched using embedding similarity
-
-LLM-Based Summarization
-
-Retrieved content is summarized using an LLM
-
-📂 Project Structure
-RAG-EVER-QUENT/
+RAG_EVER_QUENT/
 │
-├── uploads/                         # Uploaded documents (Corpus)
+├── __pycache__/                 # Python cache files (auto-generated)
+├── venv/                        # Python virtual environment
+├── uploads/                     # Directory for uploaded documents
 │   └── STEPPER MOTOR USING DELTA PLC.pdf
 │
-├── app.py                           # Application entry point
-├── rag.py                           # Core RAG logic (search + summarization)
-├── requirements.txt                 # Python dependencies
-├── .env                             # Environment variables (API keys)
-├── .gitignore
-└── .venv/                           # Virtual environment
+├── .env                         # Environment variables
+├── .gitignore                   # Git ignore file
+├── app.py                       # Main Flask application
+├── rag.py                       # Core RAG implementation
+├── requirements.txt             # Python dependencies
+└── README.md                    # This file
 
+📸 Screenshot
+https://Screenshot%25202025-12-18%2520145557.png
 
-📸 Screenshot to include here:
-VS Code folder structure showing the project layout.
+📁 File Descriptions
+File/Folder	Purpose
+app.py	Main Flask web application handling API endpoints and UI
+rag.py	Core RAG implementation with search and summarization logic
+requirements.txt	Python package dependencies
+uploads/	Storage directory for document corpus
+.env	Environment configuration (API keys, settings)
+.gitignore	Specifies files to ignore in version control
+venv/	Python virtual environment (excluded from git)
+🚀 Setup & Installation
+Prerequisites
+Python 3.8+
 
-📄 Data Preparation
+OpenAI API key (or compatible LLM provider)
 
-Documents are uploaded in PDF format
+Git
 
-Text is extracted and cleaned
+Installation Steps
+Clone the repository
 
-Long documents are split into smaller semantic chunks
+bash
+git clone <repository-url>
+cd RAG_EVER_QUENT
+Create virtual environment
 
-Chunking improves retrieval accuracy and reduces token usage
+bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install dependencies
 
-📸 Screenshot to include here:
-Uploaded PDF visible inside the uploads/ folder.
-
-🔍 Document Search
-
-Users input natural language queries
-
-Queries are converted into vector embeddings
-
-Semantic similarity search retrieves relevant chunks
-
-This approach ensures contextual relevance, not just keyword matching
-
-📸 Screenshot to include here:
-Terminal or application view showing a user query.
-
-📑 Top-N Document Retrieval
-
-The system returns the Top-N most relevant document chunks
-
-Ensures accurate grounding for summarization
-
-Improves precision and reduces hallucination
-
-📸 Screenshot to include here:
-Output displaying retrieved document excerpts or similarity results.
-
-🧠 Document Summarization
-
-Retrieved content is passed to the LLM
-
-The LLM generates a concise, coherent summary
-
-The summary captures the core intent of the documents
-
-📸 Screenshot to include here (MOST IMPORTANT):
-Final summarized answer generated by the LLM.
-
-📏 Adjustable Summary Length (Bonus)
-
-Users can specify the desired summary length
-
-Supports both short summaries and detailed explanations
-
-Improves usability for different user needs
-
-📸 Optional Screenshot:
-Comparison of short vs detailed summaries.
-
-🧪 Evaluation
-
-A subset of the corpus is used for testing
-
-Queries are designed to retrieve known relevant documents
-
-Retrieval relevance is manually verified
-
-Summary quality is evaluated for:
-
-Accuracy
-
-Coherence
-
-Completeness
-
-⚙️ Technologies Used
-
-Python
-
-Large Language Models (LLM)
-
-Embeddings for Semantic Search
-
-Retrieval-Augmented Generation (RAG)
-
-PDF Text Extraction
-
-Vector Similarity Search
-
-🚀 How to Run the Project
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/rag-document-search.git
-cd rag-document-search
-
-2️⃣ Create and Activate Virtual Environment
-python -m venv .venv
-source .venv/bin/activate    # Windows: .venv\Scripts\activate
-
-3️⃣ Install Dependencies
+bash
 pip install -r requirements.txt
+Configure environment variables
 
-4️⃣ Configure Environment Variables
+Copy .env.example to .env (if exists) or create .env
 
-Create a .env file:
+Add your API keys and configuration:
 
+text
 OPENAI_API_KEY=your_api_key_here
+MODEL_NAME=gpt-4
+TOP_K_RESULTS=5
+Prepare your document corpus
 
-5️⃣ Run the Application
+Place documents in the uploads/ folder
+
+Supported formats: PDF, TXT, DOCX
+
+Run the application
+
+bash
 python app.py
+Access the web interface at http://localhost:5000
 
-📈 Scalability & Efficiency
+🔧 Key Features
+1. Document Search
+Hybrid Retrieval: Combines TF-IDF/BM25 with vector embeddings
 
-Chunking reduces memory and token usage
+Relevance Ranking: Returns top N most relevant documents
 
-Embedding-based retrieval ensures fast search
+Query Expansion: Uses LLM for query understanding
 
-Architecture supports scaling to larger corpora
+2. Document Summarization
+LLM-Powered: Uses advanced LLMs for coherent summarization
 
-Modular design allows easy extension
+Length Control: Adjustable summary length (concise/detailed)
 
-⚠️ Challenges Faced & Solutions
+Multi-Document: Summarizes multiple related documents
+
+3. User Interface (Bonus)
+Web Interface: User-friendly query input and results display
+
+Auto-suggestions: Query suggestions as you type
+
+Pagination: Navigate through search results
+
+Customization: Adjust summary length and search parameters
+
+📊 Evaluation Metrics
+Search Accuracy
+Precision/Recall metrics
+
+Relevance scoring
+
+Manual evaluation framework
+
+Summary Quality
+ROUGE scores (automated)
+
+Human evaluation criteria
+
+Coherence and information retention
+
+🧠 Technical Implementation
+Data Processing Pipeline
+Document Ingestion: Parse and clean various document formats
+
+Chunking: Split documents into manageable segments
+
+Embedding Generation: Create vector representations
+
+Indexing: Build searchable indices (vector + keyword)
+
+Search Methodology
+Traditional: TF-IDF, BM25 for keyword matching
+
+Semantic: Sentence/Document embeddings for contextual search
+
+Hybrid: Weighted combination of both approaches
+
+Summarization Approach
+Extractive: Identify key sentences/phrases
+
+Abstractive: Generate new coherent summaries using LLMs
+
+Combined: Best-of-both approach for optimal results
+
+⚙️ Configuration Options
+Modify rag.py or environment variables for:
+
+LLM model selection (GPT-4, Claude, etc.)
+
+Chunk size and overlap
+
+Number of search results (top K)
+
+Summary length (word count)
+
+Search algorithm weights (TF-IDF vs. embeddings)
+
+📈 Performance Considerations
+Optimization Tips
+Batch Processing: Process documents in batches
+
+Caching: Cache embeddings and frequent queries
+
+Async Operations: Use async for LLM calls
+
+Indexing: Efficient vector database usage
+
+Scalability
+Designed to handle thousands of documents
+
+Modular architecture for easy scaling
+
+Support for distributed processing
+
+🧪 Testing
+Run included test scripts:
+
+bash
+python -m pytest tests/  # If tests are available
+Manual testing:
+
+Place test documents in uploads/
+
+Run test queries through web interface
+
+Evaluate search relevance and summary quality
+
+📄 Report & Documentation
+The solution includes:
+
+Detailed Report: Methodology, challenges, results
+
+Code Documentation: Inline comments and docstrings
+
+Setup Instructions: Complete deployment guide
+
+Evaluation Results: Performance metrics and analysis
+
+🚦 Challenges & Solutions
 Challenge	Solution
-Long document handling	Text chunking
-Irrelevant search results	Embedding similarity
-Summary coherence	Prompt engineering
-Resource usage	Efficient retrieval
-✅ Conclusion
+Long Context	Document chunking with overlap
+Mixed Formats	Multi-format parsers (PDF, DOCX, TXT)
+LLM Costs	Caching, optimized prompts, batching
+Relevance Ranking	Hybrid scoring (traditional + semantic)
+🤝 Contributing
+Fork the repository
 
-This project demonstrates an end-to-end LLM-powered document search and summarization system using RAG architecture.
-It fulfills all assignment requirements with a strong emphasis on accuracy, scalability, and clean code design.
+Create a feature branch
 
-🌟 Future Enhancements (Optional)
+Commit changes
 
-ROUGE score-based automated evaluation
+Push to the branch
 
-Web-based UI for uploads and queries
+Open a Pull Request
 
-Multi-document summarization
+📝 License
+[Specify your license here]
 
-Persistent vector database integration
+👥 Contact & Support
+For questions or support:
 
-📬 Contact
+Create an issue in the repository
 
-For any queries or discussions, feel free to reach out.
+[Provide contact information]
