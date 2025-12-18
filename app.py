@@ -51,13 +51,13 @@ if uploaded_files:
 Summary:"""
                 summary = qa_chain.invoke(summary_prompt)
 
-            st.subheader("🔍 Answer")
+            st.subheader(" Answer")
             st.write(answer)
 
-            st.subheader("📝 Summary")
+            st.subheader(" Summary")
             st.write(summary)
 
-            st.subheader("📚 Source Chunks")
+            st.subheader(" Source Chunks")
             for i, doc in enumerate(source_docs, 1):
                 with st.expander(f"Source {i}"):
                     st.write(doc.page_content)
