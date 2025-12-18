@@ -119,7 +119,7 @@ Create a `.env` file:
 Groq_API_KEY=my_api_key_here
 ```
 
-### 5️⃣ Run the Application
+### 5️ Run the Application
 
 ```bash
 python app.py
@@ -170,8 +170,3 @@ python app.py
 **VinothKumar**
 GenAI / Data Science Enthusiast
 
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub and feel free to fork and improve it!
